@@ -1,0 +1,12 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% load static %}
+<head>
+<link rel='stylesheet' href=" {% static 'css/images_detail.css' %} ">
+</head>
+
+<body>
+    <div class="container">
+        <img src="{{object.image.url}}" alt="image()" width="700px" height="700px">
+        <h4> {{object.name}} </h4>
+    </div>
+</body>

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %} {% static 'css/images.css' %} {% endblock link %}
+
+{% block title %}Galileriya || Ravonyoltravel.uz{% endblock title %}
+
+
+{% block content %}
+<div class="images">
+    <div class="container-lg images-area">
+        <div class="title">
+            <h1>
+                Foto galileriya <span class="blur-line"></span>
+            </h1>
+        </div>
+        
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Tanlang
+            </button>
+            <ul class="dropdown-menu indicator" aria-labelledby="dropdownMenuButton1">
+                <li data-filter="all">     <a class="dropdown-item" href="#">Barchasi</a></li>
+                <li data-filter="Farg'ona">     <a class="dropdown-item" href="#">Farg'ona</a></li>
+                <li data-filter="Toshkent" > <a class="dropdown-item" href="#">Toshkent</a></li>
+                <li data-filter="Andijon" ><a class="dropdown-item" href="#">Andijon</a></li>
+                <li data-filter="Samarqand" ><a class="dropdown-item" href="#">Samarqand</a></li>
+                <li data-filter="Buxoro" ><a class="dropdown-item" href="#">Buxoro</a></li>
+                <li data-filter="Namangan" ><a class="dropdown-item" href="#">Namangan</a></li>
+            </ul>
+        </div>
+        
+        <div class="data-field">
+            <ul class="items">
+                {% for i in object_list %}
+                <li data-category="">
+                    <strong>{{i.name}}</strong>
+                    <a href="{% url 'images_detail' i.pk %}">
+                        <img src="{{i.image.url}}" alt="image()" width="300px" height="300px">
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+

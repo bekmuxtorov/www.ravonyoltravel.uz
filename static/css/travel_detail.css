@@ -1,0 +1,66 @@
+.travel_detail{
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.travel_detail .desription-p{
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 20px;
+   
+}
+
+.class-img img{
+    width: 100%;
+    height: 90vh;
+}
+
+.class-img {
+    border-radius: 20px;
+    overflow: hidden;
+ 
+}
+
+.travel_detail .sub-title{
+    padding-top: 40px;
+
+}
+
+.travel_detail .sub-title h3{
+    margin: 0;
+    font-weight: 600;
+
+}
+
+.travel_detail button{
+    width: 100%;
+    padding: 15px 0;
+}
+
+.travel_detail p{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    margin: 0 !important;
+}
+
+@media only screen and (max-width: 697px) {
+    .class-img img {
+        height: 100%;
+    }
+
+    .travel_detail{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .travel_detail .sub-title {
+        padding-top: 20px;
+    }
+
+    .class-img {
+        border-radius: 10px;
+    }
+}

@@ -1,412 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/trips.css">
-    <link rel="stylesheet" href="/static/css/normalize.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <script src="https://kit.fontawesome.com/4de12ac000.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/aos/dist/aos.css">
-    <link rel="stylesheet" href="/static/css/shared.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Sayohatlar || Turizm.uz</title>
-</head>
-<body>
-    {% extends 'base.html' %}    
-    
-    {% block content %}
-    <div class="trips">
-        <div class="container trips-area">
-            <div class="title">
-                <h1>
-                    Sayohatlar<span class="blur-line"></span>
-                </h1>
-            </div>
-            <ul class="indicator"> 
-                <li data-filter="all" class="active">
-                    <a href="#">Hammasi</a>
-                </li>
-                <li data-filter="Farg'ona">
-                    <a href="#">Fargonadan</a>
-                </li>
-                <li data-filter="Toshkent">
-                    <a href="#">Toshkentdan</a>
-                </li>
-            </ul>
-            
-            <div class="product-field">
-                <ul class="items">
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Farg'ona</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div >
-                                        <a class="about-link" target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image3.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Toshkent</strong>-Xorazm
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Toshkent</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image3.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Farg'ona</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Toshkent</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Toshkent</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Farg'ona</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Farg'ona</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image3.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Toshkent</strong>-Buxoro
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                    
-                    <li data-category="" data-price="" class="shadow">
-                        <div class="trip-item-img" >
-                            <img src="/static/images/image4.jpg" width="512px">
-                        </div>
-                        
-                        <div class="trip-item-description">
-                            <h2>
-                                <strong>Farg'ona</strong>-Samarqand
-                            </h2>
-                            <p class="desription-p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, corrupti. Quam, nobis dolor! Neque sequi nisi eligendi magnam, unde corrupti.<br><br>
-                                <b>Davomiyligi</b>: 3 kun <br>
-                                <b>Narxi</b>: 1 500 000 so'm                             
-                            </p>
-                            
-                            <div class="control">
-                                <div class="control-item">
-                                    <div>
-                                        <a class="about-link" 
-                                        target="_blank" href="https://telegra.ph/Fargona-Samarqand-05-22">Batafsil</a>
-                                    </div>
-                                </div>
-                                <div class="control-item">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Buyurtma berish
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <!-- Button trigger modal -->
-            
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="" onsubmit=" return sendtelegram()">
-                            <div class="modal-body">
-                                <div class="form">
-                                    <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
-                                    <input type="number" name="number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
-                                    <input type="number" name="number" placeholder="Sayohatchilar soni"  id="person_number">                                         
-                                    <input type="text" name="name" placeholder="Qayerdan " id="qayerdan" required autocomplete="off">
-                                    <input type="text" name="name"  placeholder="Qayerga "  id="qayerga" required autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-                                <input type="submit" class="btn btn-primary" value="Jo'natish" id="btn">
-                            </div>
-                        </form>
+{% extends 'base.html' %}  
+{% load static %}  
+
+{% block link %}{% static 'css/trips.css' %}{% endblock link %}
+
+{% block title %}Sayohatlar || Ravonyoltravel.uz{% endblock title %}
+
+{% block content %}
+<div class="trips">
+    <div class="container-lg trips-area">
+        <div class="title">
+            <h1>
+                Sayohatlar<span class="blur-line"></span>
+            </h1>
+        </div>
+        <ul class="indicator indicator1"> 
+            <li data-filter="all" class="active">
+                <a href="#">Hammasi</a>
+            </li>
+            <li data-filter="Farg'ona">
+                <a href="#">Farg'onadan</a>
+            </li>
+            <li data-filter="Andijon">
+                <a href="#">Andijondan</a>
+            </li>
+        </ul>
+        
+        <div class="product-field">
+            <ul class="items">
+                {% for t in object_list %}
+                <li data-category="" data-price="" class="shadow">
+                    <div class="trip-item-img" >
+                        {% if t.picture %}
+                        <img src = "{{ t.picture.url }}" width="512px">
+                        {% else %}
+                        <img src = " {% static 'images/image2.jpg' %}"
+                        {% endif %}
                     </div>
+                    
+                    <div class="trip-item-description">
+                        <h2>
+                            <strong>{{t.qayerdan}}</strong>dan - {{t.qayerga.lower.title}}ga
+                        </h2> 
+                        <p class="desription-p">
+                            {% if qisqa_mal|length <= 200 %}
+                            {{t.qisqa_mal}}
+                            {% else %}
+                            
+                            {{ t.qisqa_mal | slice:":200"}}...
+                            
+                            {% endif %}
+                            <br><br>
+                            <b>Davomiyligi</b>: {{ t.davomiyligi }} kun <br>
+                            <b>Narxi</b>: {{ t.narxi }} so'm                             
+                        </p>
+                        
+                        <div class="control">
+                            <div class="control-item">
+                                <div >
+                                    <a class="about-link"  href= "{% url 'travel_detail' t.pk %}">Batafsil</a>
+                                </div>
+                            </div>
+                            <div class="control-item">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Buyurtma berish
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </li>
+                {% endfor %}
+                
+            </ul>
+        </div>
+        
+        <!-- Button trigger modal -->
+        
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" onsubmit=" return sendtelegram()">
+                        <div class="modal-body">
+                            <div class="form">
+                                <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
+                                <input type="number" name="number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
+                                <input type="number" name="number" placeholder="Sayohatchilar soni"  id="person_number">                                         
+                                <input type="text" name="name" placeholder="Qayerdan " id="qayerdan" required autocomplete="off">
+                                <input type="text" name="name"  placeholder="Qayerga "  id="qayerga" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                            <input type="submit" class="btn btn-primary" value="Jo'natish" id="btn">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    {% endblock content %}
-    
-    <script src="static/js/sendtelegram.js"></script>
-    <script src="static/aos/dist/aos.js"></script>
-    <script> 
-        AOS.init({
-            easing:'ease-in-outi-sine'
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-    <script src="static/js/app.js"></script>
-    
-</body>
-</html>
+</div>
+{% endblock content %}
