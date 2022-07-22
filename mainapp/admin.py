@@ -5,3 +5,4 @@ from .models import Travel, Tassurotlar, Rasmlar
 admin.site.register(Travel)
 admin.site.register(Tassurotlar)
 admin.site.register(Rasmlar)
+
