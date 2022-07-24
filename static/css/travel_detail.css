@@ -42,6 +42,12 @@
 .travel_detail p{
     padding-left: 0 !important;
     padding-right: 0 !important;
+    font-size: 1.5rem;
+    line-height: 2;
+    letter-spacing: 2;
+    color: #000;
+    opacity: 0.8;
+    width: 100%;
 
     margin: 0 !important;
 }

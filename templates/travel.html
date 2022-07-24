@@ -42,13 +42,7 @@
                             <strong>{{t.qayerdan}}</strong>dan - {{t.qayerga.lower.title}}ga
                         </h2> 
                         <p class="desription-p">
-                            {% if qisqa_mal|length <= 200 %}
-                            {{t.qisqa_mal}}
-                            {% else %}
-                            
-                            {{ t.qisqa_mal | slice:":200"}}...
-                            
-                            {% endif %}
+                            {{ t.qisqa_mal|slice:":200"}}...
                             <br><br>
                             <b>Davomiyligi</b>: {{ t.davomiyligi }} kun <br>
                             <b>Narxi</b>: {{ t.narxi }} so'm                             

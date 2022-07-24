@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e_c(x7$qbke+m-y%#=2x8ox_^fxx_y@z8c#hw&2h5be30*_y%3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com','localhost', '127.0.0.1']
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',
     'mainapp',
 ]
 
@@ -77,10 +79,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -121,20 +123,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATICFILES_DIRS = [
-#     BASE_DIR.joinpath('static')
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
-# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
-STATICFILES_DIRS = str(BASE_DIR, 'static'),
-STATIC_ROOT = str(BASE_DIR, 'staticfiles_build', 'static')
+
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
+
+
 
 
 
@@ -142,3 +142,16 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
+
+#CKEDITOR_CONFIGS
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_RESTRICK_BY_USER = True

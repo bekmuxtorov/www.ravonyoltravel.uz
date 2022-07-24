@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <div class="travel_detail">
+    <div class="travel_detail description-p">
         <div class="container-lg">
             <div class="class-img">
                 <img src="{{object.picture.url}}" alt="{{object.picture}}">
@@ -20,7 +20,7 @@
                 </h3>
             </div>
             <p class="desription-p">
-                {{ object.toliq_mal }}
+                {{ object.toliq_mal | safe }}
             </p>
 
            <div class="button">
