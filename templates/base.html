@@ -46,12 +46,6 @@
                             <li class="nav-item {% if request.resolver_match.url_name == 'images'%}active{% endif %} " > <a class="nav-item" href=" {% url 'images' %}">Suratlar</a></li>
                             <li class="nav-item {% if request.resolver_match.url_name == 'about'%}active{% endif %} " > <a class="nav-item" href=" {% url 'about' %}">Biz haqimizda</a></li>
                             
-                            
-                            {% comment %} <li class="nav-item active"><a href="{% url 'home' %} ">Bosh sahifa</a></li>
-                            <li class="nav-item"><a href="{% url 'travels' %} "> Sayohatlar</a></li>
-                            <li class="nav-item"><a href="{% url 'news' %} ">Taassurotlar</a></li>
-                            <li class="nav-item"><a href="{% url 'images' %} ">Suratlar</a></li>
-                            <li class="nav-item"><a href="{% url 'about' %} ">Biz haqimizda</a></li> {% endcomment %}
                         </ul>
                         
                     </div>
@@ -73,11 +67,12 @@
                                     <div class="offcanvas-body">
                                         <ul class="nav-items menu-nav-items">
                                             
-                                            <li class="nav-item active"><a href="{% url 'home' %} ">Bosh sahifa</a></li>
-                                            <li class="nav-item"><a href="{% url 'travels' %} "> Sayohatlar</a></li>
-                                            <li class="nav-item"><a href="{% url 'news' %} ">Taassurotlar</a></li>
-                                            <li class="nav-item"><a href="{% url 'images' %} ">Suratlar</a></li>
-                                            <li class="nav-item"><a href="{% url 'about' %} ">Biz haqimizda</a></li>
+                                            <li class="nav-item {% if request.resolver_match.url_name == 'home'%}active{% endif %} " > <a class="nav-item" href=" {% url 'home' %}">Bosh sahifa</a></li>
+                                            <li class="nav-item {% if request.resolver_match.url_name == 'travels'%}active{% endif %} " > <a class="nav-item" href=" {% url 'travels' %}">Sayohatlar</a></li>
+                                            <li class="nav-item {% if request.resolver_match.url_name == 'news'%}active{% endif %} " > <a class="nav-item" href=" {% url 'news' %}">Taassurotlar</a></li>
+                                            <li class="nav-item {% if request.resolver_match.url_name == 'images'%}active{% endif %} " > <a class="nav-item" href=" {% url 'images' %}">Suratlar</a></li>
+                                            <li class="nav-item {% if request.resolver_match.url_name == 'about'%}active{% endif %} " > <a class="nav-item" href=" {% url 'about' %}">Biz haqimizda</a></li>
+                                            
                                         </ul>
                                         
                                     </div>
