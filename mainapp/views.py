@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
-from .models import Travel, Tassurotlar, Rasmlar
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
 
 # Create your views here.
 
@@ -19,6 +19,25 @@ class NewsPagesView(ListView):
     model = Tassurotlar
     template_name = 'news.html'
 
+
+# Commentariya 
+# ===================================
+
+class CommentPagesView(ListView):
+    model = Fikrlar
+    template_name = 'fikrlar.html'
+
+class CommentDetailView(DetailView):
+    model = Fikrlar
+    template_name = 'fikrlar_detail.html'
+
+class CommentNewView(CreateView):
+    model = Fikrlar
+    template_name = 'fikrlar_new.html'
+    fields = ['name', 'text']
+
+# ===================================
+
 class NewsDetailView(DetailView):
     model = Tassurotlar
     template_name = 'news_detail.html'
@@ -36,6 +55,18 @@ class ImageDetailView(DetailView):
 
 class AboutPagesView(TemplateView):
     template_name = 'about.html'
+
+# Transport xizmati
+# ===================================
+class TransportPagesView(ListView):
+    model = Transport
+    template_name = 'transport.html'
+
+
+
+# ===================================
+
+
 
 
 

@@ -9,6 +9,10 @@ from .views import (
     TravelDetailView,
     NewsDetailView,
     ImageDetailView,
+    CommentPagesView,
+    CommentNewView,
+    CommentDetailView,
+    TransportPagesView
     )
 from django.urls import path    
 
@@ -23,4 +27,12 @@ urlpatterns = [
     path('about/', AboutPagesView.as_view(), name = 'about'),
     path('travels/<int:pk>/', TravelDetailView.as_view(), name = 'travel_detail'),
     path('news/<int:pk>/', NewsDetailView.as_view(), name = 'news_detail'),
+    
+    path('fikrlar/', CommentPagesView.as_view(), name = 'fikrlar'),
+    path('fikrlar/add/', CommentNewView.as_view(), name = 'fikrlar_new'),
+    path('fikrlar/<int:pk>', CommentDetailView.as_view(), name = 'fikrlar_detail'),
+
+    path('transport/', TransportPagesView.as_view(), name = "transport" ),
+
 ]
+

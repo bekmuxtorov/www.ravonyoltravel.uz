@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %} {% static "css/transport.css" %} {% endblock link %}
+
+{% block title %}
+  Transport xizmati || Ravonyoltravel.uz
+{% endblock title %}
+
+{% block content %}
+<div class="transport">
+    <div class="container-lg">
+        <div class="title">
+            <h1>
+                Transport xizmati <span class="blur-line"></span>
+            </h1>
+        </div>
+
+        <div>
+            <p class="desription-p">
+               &nbsp; &nbsp; Biz sizlarga Farg'ona vodiysi bo'ylab transport xizmatlarini xam ko'rsatamiz. Sizning buyurtmangiz va talabingiz asosida oila, jamoviy to'y, marosim, va tadbirlarga eltib qo'yish, olib kelish xizmatlarini ko'rsatamiz. Xizmatlarimiz sifatli va o'z vaqtida amalga oshiriladi. <br><br>
+                <ol>
+                    <li class="desription-p">
+                        Avtobus xizmati ISUZU NP21 va ISUZU NP37 rusumli avtobuslarda amalga oshiriladi. 
+                    </li>
+
+                    <li class="desription-p">
+                        Damas xizmati GM Uzbekiston tarmog'ida ishlab chiqilgan Damas va Labo rusumli avtomobillarda amalga oshiriladi.
+                    </li>
+                </ol>
+            </p>
+        </div>
+
+        <ul class="trans-items">
+            {% for trans in object_list %}
+              <li class="trans-item">
+                    <div class="item-img">
+                        <img src=" {{ trans.image.url }} " alt=" {{ trans.image.url }}" width = "512px">
+                    </div>
+                   
+                    <div class="item-text">
+                        <p> {{ trans.name }} </p>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Buyurtma berish
+                        </button>
+                    </div>
+              </li>
+            {% endfor %}
+        </ul>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" onsubmit=" return sendtelegram1()">
+                        <div class="modal-body">
+                            <div class="form">
+                                <input type="text" name="name" placeholder="Ismingizni kiriting:" required autocomplete="off" id="name">
+                                <input type="number" name="number" placeholder="Telefon raqamingizni kiriting:" required autocomplete="off" id="number"> 
+                                <input type="text" name="number" placeholder="Xizmat turi(avtobus yoki damas)"  id="person_number">                                         
+                                <input type="text" name="name" placeholder="Marosim yoki tadbir nomi:" id="qayerdan" required autocomplete="off">
+                                <input type="text" name="name"  placeholder="Xudud manzili:"  id="qayerga" required autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                            <input type="submit" class="btn btn-primary" value="Buyurtma" id="btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

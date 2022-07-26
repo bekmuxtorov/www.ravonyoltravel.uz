@@ -9,7 +9,7 @@ var ready = function() {
     number = document.getElementById("number").value;
     qayerdan = document.getElementById("qayerdan").value;
     qayerga = document.getElementById("qayerga").value;
-    message = "Ismi:  " + u_name + "\n\nTel raqami: " + number + "\n\nSayohatchilar soni: " + person_number +  "\n\nQayerdan: " + qayerdan +  "\n\nQayerga: " + qayerga;
+    message = "Ismi:  " + u_name + "\n\nTel raqami: " + number + "\n\nXizmat turi: " + person_number +  "\n\nMarosim nomi: " + qayerdan +  "\n\nQayerga: " + qayerga;
     
 };
 var sendtelegram = function() {

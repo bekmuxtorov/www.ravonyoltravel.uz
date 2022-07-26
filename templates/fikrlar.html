@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %} {% static 'css/fikrlar.css' %} {% endblock link %}
+{% block title %}Taassurotlar || Ravonyoltravel.uz{% endblock title %}
+
+
+{% block content %}
+<div class="fikrlar">
+    <div class="container-lg">
+        <div class="title">
+            <h1>
+                Taassurotlar <span class="blur-line"></span>
+            </h1>
+        </div>
+
+        
+        <div class="fikr_button">
+            <a class="btn btn-primary" href=" {% url 'fikrlar_new' %}">
+                +Yangi tassurot qo'shish
+            </a>
+        </div>
+        
+        {% for fikr in object_list %}
+
+      <div class="fikr-box">
+        <p class = "fikr_text desription-p">
+            {{ fikr.text }}
+        </p>
+        
+        <p class="fikr_name desription-p">
+            {{ fikr.name | title }}
+        </p>
+      </div>
+        {% endfor %}
+        
+        
+        
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+

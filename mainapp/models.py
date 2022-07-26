@@ -1,9 +1,10 @@
-from asyncio.windows_events import NULL
+from audioop import reverse
 from distutils.command.upload import upload
 from email.policy import default
 from turtle import update
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.urls import reverse
 
 # Create your models here.
 class Travel(models.Model):
@@ -27,6 +28,9 @@ class Tassurotlar(models.Model):
 
     def __str__(self):
         return self.sarlavha
+    
+    def get_absolute_url(self):
+        return reverse('news_detail', args = [str(self.pk)])
 
 class Rasmlar(models.Model):
     image = models.ImageField(blank = True, verbose_name = 'Rasmni joylang:')
@@ -34,6 +38,29 @@ class Rasmlar(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Fikrlar(models.Model):
+    name = models.CharField(max_length=70, verbose_name = 'Ism, familiyangizni kiriting: ')
+    text = models.TextField(max_length=300, verbose_name= 'Fikrlaringizni kiriting: ')
+    
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('fikrlar_detail', args = [str(self.pk)])
+
+class Transport(models.Model):
+    name = models.CharField(max_length=30, verbose_name="Transport nomini kiriting:")
+    image = models.ImageField(blank= True, verbose_name="Transport rasmini joylang: ")
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
 
 
 

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    # tashqi app
+    'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
     'mainapp',
@@ -146,6 +148,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 #CKEDITOR_CONFIGS
 CKEDITOR_CONFIGS = {
     'default': {
@@ -155,3 +159,4 @@ CKEDITOR_CONFIGS = {
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICK_BY_USER = True
+

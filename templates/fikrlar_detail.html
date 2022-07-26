@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %} {% static 'css/fikrlar.css' %} {% endblock link %}
+{% block title %}Taassurotlar || Ravonyoltravel.uz{% endblock title %}
+
+
+{% block content %}
+<div class="fikrlar">
+    <div class="container-lg">   
+        
+        <div class="fikr-box">
+            <p class = "fikr_text desription-p">
+                {{ object.text }}
+            </p>
+            
+
+            <p class="fikr_name desription-p">
+                {{ object.name }}
+            </p>
+        </div>
+        
+        
+        
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+

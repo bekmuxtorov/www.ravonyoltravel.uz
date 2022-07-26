@@ -360,6 +360,21 @@ header{
 }
 
 /* responsive */
+@media only screen and (max-width: 1265px){
+    
+    .menu-nav-second{
+        display: block;
+        position: relative !important;
+        top: 30px !important;
+        
+    }
+    
+    
+    .menu-nav-first{
+        display: none;
+    }
+    
+}
 @media only screen and (max-width: 1150px){
     
     .header-area{
