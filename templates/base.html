@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/shared.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css'%} ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" type="text/css" href="{% static 'aos/dist/aos.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -28,9 +27,9 @@
         
         
         <!-- header section -->
-        <header class="shadow">
+        <header>
             <div class="box-container">
-                <div class=" container-lg header-area  menu-nav-first ">
+                <div class="container-lg header-area  menu-nav-first ">
                     <div class="header-item header-logo">
                         <!-- <img src="" alt=""> -->
                         <h2>Ravonyoltravel.uz</h2>
@@ -56,7 +55,7 @@
                     <div class=" container-lg header-area ">
                         <nav class="navbar bg-light fixed-top">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#"><h2>Ravonyoltravel.uz</h2></a>
+                                <a class="navbar-brand" href=" {% url 'home' %} "><h2>Ravonyoltravel.uz</h2></a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
@@ -99,7 +98,7 @@
             <div class="contact-item contact-description">
                 <h3>Biz bilan bog'laning</h3>
                 <p>Tel:  +998 90 300 22 60 <br>
-                    Tel:  +998 90 300 22 60  
+                    Tel:  +998 91 114 78 31  
                 </p>
             </div>
             <div class="contact-item">
@@ -133,16 +132,11 @@
                 <div class="footer-item footer-description">
                     <div class="social-media">
                         <span class="social-media__item">
-                            <a href="#">
+                            <a href="https://t.me/erkinjon_xoljorayev">
                                 <i class="fa-brands fa-telegram fa-xl"></i>
                             </a>
                         </span>
                         
-                        <span class="social-media__item">
-                            <a href="#">
-                                <i class="fa-brands fa-facebook fa-xl"></i> 
-                            </a>
-                        </span>
                         
                         <span class="social-media__item">
                             <a href="#">
@@ -151,7 +145,7 @@
                         </span>
                         
                         <span class="social-media__item">
-                            <a href="mailto: exemple@gmail.com">
+                            <a href="mailto: erkinjonholjorayev@gmail.com">
                                 <i class="fa-solid fa-envelope fa-xl"></i> 
                             </a>
                         </span>
@@ -180,9 +174,11 @@
     
     <script src="/static/aos/dist/aos.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script src="/static/js/sendtelegram1.js"></script>
-    <script src="/static/js/sendtelegram.js"></script>
+    
+    <script src = {% block js %}{% endblock js %}></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     
     <script> 
         AOS.init({

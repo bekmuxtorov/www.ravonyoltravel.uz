@@ -8,7 +8,7 @@
 
 
 
-{% block title %}Taassurotlar || Ravonyoltravel.uz{% endblock title %}
+{% block title %}Yangiliklar || Ravonyoltravel.uz{% endblock title %}
 
 
 {% block content %}
@@ -16,7 +16,7 @@
     <div class="news">
         <div class="title">
             <h1>
-                Taassurotlar <br>
+                Yangiliklar <br>
             </h1>
         </div>
         <div class="product-field">
@@ -94,7 +94,8 @@
 </div>
 {% endblock content %}
 
-<script src="/static/js/sendtelegram.js"></script>
+{% block js %} {% static 'js/sendtelegram.js' %} {% endblock js %}
+
 
 
 

@@ -1,6 +1,7 @@
 from audioop import reverse
 from distutils.command.upload import upload
 from email.policy import default
+from tabnanny import verbose
 from turtle import update
 from django.db import models
 from ckeditor.fields import RichTextField
@@ -19,6 +20,10 @@ class Travel(models.Model):
     def __str__(self):
         return f"{self.qayerdan} {self.qayerga}"
 
+    class Meta:
+        verbose_name = "Sayohatlar"
+        verbose_name_plural = "Sayohatlar"
+
 
 class Tassurotlar(models.Model):
     sarlavha = models.CharField(max_length=50, verbose_name='Sarlavha')
@@ -32,12 +37,20 @@ class Tassurotlar(models.Model):
     def get_absolute_url(self):
         return reverse('news_detail', args = [str(self.pk)])
 
+    class Meta:
+        verbose_name = "Yangiliklar"
+        verbose_name_plural = "Yangiliklar"
+
 class Rasmlar(models.Model):
     image = models.ImageField(blank = True, verbose_name = 'Rasmni joylang:')
     name = models.CharField(max_length = 20, verbose_name= 'Rasmning nomi:')
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Rasmlar"
+        verbose_name_plural = "Rasmlar"
 
 
 class Fikrlar(models.Model):
@@ -50,12 +63,20 @@ class Fikrlar(models.Model):
     def get_absolute_url(self):
         return reverse('fikrlar_detail', args = [str(self.pk)])
 
+    class Fikrlar:
+        verbose_name = "Fikrlar"
+        verbose_name_plural = "Fikrlar"
+
 class Transport(models.Model):
     name = models.CharField(max_length=30, verbose_name="Transport nomini kiriting:")
     image = models.ImageField(blank= True, verbose_name="Transport rasmini joylang: ")
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Transport'
+        verbose_name_plural = "Transport"
 
 
 

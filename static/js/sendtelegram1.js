@@ -12,7 +12,7 @@ var ready = function() {
     message = "Ismi:  " + u_name + "\n\nTel raqami: " + number + "\n\nXizmat turi: " + person_number +  "\n\nMarosim nomi: " + qayerdan +  "\n\nQayerga: " + qayerga;
     
 };
-var sendtelegram = function() {
+var sendtelegram1 = function() {
     ready();
     var settings = {
         "async": true,

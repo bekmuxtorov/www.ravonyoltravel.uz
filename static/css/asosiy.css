@@ -61,6 +61,28 @@ body{
     background-image: url("/static/images/forhire.jpg")
 }
 
+.hero5{
+    background-image:url("/static/images/rasm1.jpg");
+
+}
+
+.hero6{
+   background-image: url("/static/images/rasm2.jpg");
+   
+}
+
+.hero7{
+   background-image:url("/static/images/rasm7.jpg");
+}
+
+.hero8{
+   background-image: url("/static/images/rasm8.jpg")
+}
+
+.hero9{
+    background-image: url("/static/images/rasm9.jpg")
+ }
+
 /* about our */
 .about{
     padding:200px 0 ;

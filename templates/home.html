@@ -10,25 +10,55 @@
 <div class="hero-section">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active carousel-item-1" data-bs-interval="2000">
+            <div class="carousel-item active" data-bs-interval="6000">
                 <h2 class="hero-description hero1 d-block" data-aos="fade-right" >
                     Biz bilan ongli ravishda sayohat qiling.
                 </h2>
             </div>
-            <div class="carousel-item" class="carousel slide"  data-bs-interval="2000">
+            <div class="carousel-item"  data-bs-interval="6000">
                 <h2 class="hero-description hero2 d-block">
                     Har bir mehmon bizning hamkorimiz.
                 </h2>   
             </div>
-            <div class="carousel-item"  class="carousel slide" data-bs-interval="2000"> 
+            <div class="carousel-item"   data-bs-interval="6000"> 
                 <h2 class="hero-description hero3 d-block">
                     Eng yaxshi sifatni tanlang.
                 </h2>
             </div>
             
-            <div class="carousel-item" class="carousel slide" data-bs-interval="2000">
+            <div class="carousel-item"  data-bs-interval="6000">
                 <h2 class="hero-description hero4 d-block">
                     Har bir sayyoh  bizning do'stimiz va hamkorimiz hamda yaqin insonimizdir!
+                </h2>
+            </div>
+            
+            <div class="carousel-item"  data-bs-interval="6000">
+                <h2 class="hero-description hero5 d-block">
+                    "Sayohat qilish - rivojlanishni anglatadi" Pier Bernando.
+                </h2>
+            </div>
+            
+            <div class="carousel-item"  data-bs-interval="6000">
+                <h2 class="hero-description hero6 d-block">
+                    "Oh, siz tashrif buyuradigan barcha joylar!" Dr. Seuss
+                </h2>
+            </div>
+            
+            <div class="carousel-item"  data-bs-interval="6000">
+                <h2 class="hero-description hero7 d-block">
+                    “Sayohatchi ko‘rganini ko‘radi; sayyohlar nima ko'rish uchun kelganlarini ko'rishadi" GK Chesterton.
+                </h2>
+            </div>
+            
+            <div class="carousel-item"  data-bs-interval="6000">
+                <h2 class="hero-description hero8 d-block">
+                    "Sayohat qilish sizni so'zsiz qoldiradi va keyin sizni yaxshiroq hikoyachi qiladi." Ibn Battuta
+                </h2>
+            </div>
+            
+            <div class="carousel-item"  data-bs-interval="6000">
+                <h2 class="hero-description hero9 d-block">
+                    "Sayohatga sarmoya - bu o'zingizga qilingan sarmoyadir" Metyu Karsten.
                 </h2>
             </div>
         </div>
@@ -50,7 +80,7 @@
                 </div>
                 <p class="desription-p">
                     'Ravonyoltravel.uz' O'zbekiston bo'ylab ichki turizm uyushtiruvchi kompaniya hisoblanadi. Tajribali mutaxassislar va 5 yillik tajriba bizning ustunligimiz garovidir.<br>
-                    <a class="about-link" href="#">
+                    <a class="about-link" href="{% url 'about' %}">
                         Batafsil
                     </a>
                 </p>
@@ -131,7 +161,7 @@
 </div>
 
 <!-- clients -->
-<div class="clients box-container" id="clients" data-aos="fade-up" data-aos-duration="3000">
+<div class="clients" >
     <div class="container-lg clients-area">
         <div class="sub-title">
             <p>
@@ -142,7 +172,7 @@
             </h3>
         </div>
         
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div >
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
                     <div class="clients-items">
@@ -157,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item" data-bs-interval="3000">
+                <div class="carousel-item" data-bs-interval="6000">
                     <div class="clients-items">
                         <div class="clients-item-img">
                             <img class="" src="./static/images/fargona.webp" alt="image()">
@@ -179,76 +209,77 @@
                             <h3>Namangan</h3>
                             <p>
                                 Namanganda qish juda yumshoq va manfiy haroratlar tez-tez uchrab turmaydi, ammo havo haroratining keskin sovishini ham ayrim paytlar kuzatish mumkin. Sayohat paytida issiq kiyimlarni ham eʼtibordan chetda qoldirmang. Yozda barqaror issiq bo‘ladi, bunday paytda bosh kiyimda yurish hamda iloji boricha ko‘proq suv ichish tavsiya etiladi.Shahar o‘z nomini “Namak Kon” iborasidan olgan bo‘lib, fors tilida “tuz koni” degan maʼnoni anglatadi.                             </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-    </div>
-</div>
-
-<div class="blog">
-    <div class="box-container">
-        <div class="container-lg">
-            <div class="sub-title">
-                <p>
-                    Blog
-                </p>
-                <h3>
-                    Sayohatlardan tassurotlar
-                </h3>
-            </div>
             
-            <ul class="blog-items">
-                <div class="blog-item shadow" data-aos="fade-up" data-aos-duration="1000" >
-                    <div class="blog-img">
-                        <img src="static/images/image3.jpg" alt="image3">
-                    </div>
-                    <div class="blog-description">
-                        <p class="blog-date">
-                            FEBRUARY 26, 2018
-                        </p>
-                        <h5 class="blog-title">
-                            45 Best Places To Unwind
-                        </h5>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    </div>
-                </div>
-                
-                <div class="blog-item shadow" data-aos="fade-up" data-aos-duration="1000" >
-                    <div class="blog-img">
-                        <img src="static/images/image3.jpg" alt="image3">
-                    </div>
-                    <div class="blog-description">
-                        <p class="blog-date">
-                            FEBRUARY 26, 2018
-                        </p>
-                        <h5 class="blog-title">
-                            45 Best Places To Unwind
-                        </h5>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    </div>
-                </div>
-                
-                <div class="blog-item shadow" data-aos="fade-up" data-aos-duration="1000" >
-                    <div class="blog-img">
-                        <img src="static/images/image3.jpg" alt="image3">
-                    </div>
-                    <div class="blog-description">
-                        <p class="blog-date">
-                            FEBRUARY 26, 2018
-                        </p>
-                        <h5 class="blog-title">
-                            45 Best Places To Unwind
-                        </h5>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    </div>
-                </div>
-            </ul>
         </div>
     </div>
-</div>
-
-{% endblock content %}
-
+    
+    <div class="blog">
+        <div class="box-container">
+            <div class="container-lg">
+                <div class="sub-title">
+                    <p>
+                        Blog
+                    </p>
+                    <h3>
+                        Sayohatlardan tassurotlar
+                    </h3>
+                </div>
+                
+                <ul class="blog-items">
+                    <div class="blog-item shadow" data-aos="fade-up" data-aos-duration="1000" >
+                        <div class="blog-img">
+                            <img src="static/images/image3.jpg" alt="image3">
+                        </div>
+                        <div class="blog-description">
+                            <p class="blog-date">
+                                FEBRUARY 26, 2018
+                            </p>
+                            <h5 class="blog-title">
+                                45 Best Places To Unwind
+                            </h5>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-item shadow" data-aos="fade-up" data-aos-duration="1000" >
+                        <div class="blog-img">
+                            <img src="static/images/image2.jpg" alt="image3">
+                        </div>
+                        <div class="blog-description">
+                            <p class="blog-date">
+                                FEBRUARY 26, 2018
+                            </p>
+                            <h5 class="blog-title">
+                                45 Best Places To Unwind
+                            </h5>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-item shadow" data-aos="fade-up" data-aos-duration="1000" >
+                        <div class="blog-img">
+                            <img src="static/images/image3.jpg" alt="image3">
+                        </div>
+                        <div class="blog-description">
+                            <p class="blog-date">
+                                FEBRUARY 26, 2018
+                            </p>
+                            <h5 class="blog-title">
+                                45 Best Places To Unwind
+                            </h5>
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock content %}
+    
+    

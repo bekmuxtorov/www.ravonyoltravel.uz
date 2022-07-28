@@ -54,7 +54,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="" onsubmit=" return sendtelegram1()">
+                    <form action="" onsubmit="return sendtelegram1()">
                         <div class="modal-body">
                             <div class="form">
                                 <input type="text" name="name" placeholder="Ismingizni kiriting:" required autocomplete="off" id="name">
@@ -76,3 +76,4 @@
 </div>
 
 {% endblock content %}
+{% block js %} {% static 'js/sendtelegram1.js' %} {% endblock js %}
