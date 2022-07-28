@@ -125,16 +125,21 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
 
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
+STATICFILES_DIRS = ('/home/ravonyo2/ravonyoltravel.uz/django/static_files',)
+STATIC_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/static'
+MEDIA_URL = 'media/'
+MEDIA_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/media'
 
 
 
@@ -145,8 +150,8 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
