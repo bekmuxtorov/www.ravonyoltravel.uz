@@ -136,8 +136,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
-STATICFILES_DIRS = ('/home/ravonyo2/ravonyoltravel.uz/django/static_files',)
-STATIC_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/static'
+STATICFILES_DIRS = ('/home/ravonyo2/ravonyoltravel.uz/django/static',)
+STATIC_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/staticfiles'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/media'
 
