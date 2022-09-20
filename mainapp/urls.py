@@ -1,4 +1,3 @@
-from unicodedata import name
 from .views import (
     BasePageView, 
     TravelPageView, 
@@ -12,9 +11,13 @@ from .views import (
     CommentPagesView,
     CommentNewView,
     CommentDetailView,
-    TransportPagesView
+    TransportPagesView,
     )
-from django.urls import path    
+from django.urls import path  
+
+
+
+
 
 
 urlpatterns = [
@@ -35,4 +38,5 @@ urlpatterns = [
     path('transport/', TransportPagesView.as_view(), name = "transport" ),
 
 ]
+
 

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e_c(x7$qbke+m-y%#=2x8ox_^fxx_y@z8c#hw&2h5be30*_y%3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["ravonyoltravel.uz", "www.ravonyoltravel.uz"]
+ALLOWED_HOSTS = ['ravonyoltravel.uz', 'http://ravonyoltravel.uz','127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    # Payment
+    'rest_framework',
+    # 'corsheaders',
+    'clickuz',
+
     # tashqi app
     'crispy_forms',
     'ckeditor',
@@ -111,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz-uz'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -125,21 +131,21 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
-# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
-
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 
-STATICFILES_DIRS = ('/home/ravonyo2/ravonyoltravel.uz/django/static',)
-STATIC_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/staticfiles'
-MEDIA_URL = 'media/'
-MEDIA_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/media'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+
+# STATICFILES_DIRS = ('/home/ravonyo2/ravonyoltravel.uz/django/static',)
+# STATIC_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/staticfiles'
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/media'
 
 
 
@@ -150,18 +156,27 @@ MEDIA_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #CKEDITOR_CONFIGS
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full',
-    },
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
 }
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICK_BY_USER = True
+
+
+
 

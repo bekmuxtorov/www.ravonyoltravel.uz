@@ -2,6 +2,12 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
 
+from rest_framework.generics import CreateAPIView
+from rest_framework.response import Response
+from rest_framework.status import HTTP_201_CREATED
+from .serializers import OrderSerializer
+
+
 # Create your views here.
 
 class BasePageView(TemplateView):
@@ -63,8 +69,23 @@ class TransportPagesView(ListView):
     template_name = 'transport.html'
 
 
-
+# Payment
 # ===================================
+class OrderCreateAPIView(CreateAPIView):
+    queryset = Travel.objects.all()
+    serializer_class = OrderSerializer
+
+    def create(self, request, *args, **kwargs):
+        response = super().create(request, *args, **kwargs)
+        order_id = response.data.get('id')
+        order = Travel.objects.get(pk=order_id)
+        return_url = request.data.get('return_url')
+        return Response({
+            'request': 'success',
+            'click': order.get_payment_url(return_url)
+        }, status=HTTP_201_CREATED)
+
+
 
 
 
