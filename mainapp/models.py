@@ -18,16 +18,30 @@ class Travel(models.Model):
     def __str__(self):
         return f'Sayohat {self.id} - {self.qayerdan} - {self.qayerga} - {self.narxi} '
         # return f"{self.qayerdan} {self.qayerga}"
+    class Meta:
+        verbose_name = "Sayohatlar"
+        verbose_name_plural = "Sayohatlar"
+
+class Order(models.Model):
+    is_payed = models.BooleanField(default=False)
+
+    where_from = models.CharField(max_length=255)
+    where_to = models.CharField(max_length=255)
+    package = models.CharField(max_length=255)
+    customer_phone_number = models.CharField(max_length=255)
+    amount = models.DecimalField(max_digits=50, decimal_places=2)
+    start_date = models.IntegerField()
+    end_date = models.IntegerField()
+
+    def __str__(self):
+        return f'Order {self.id} - {self.amount} - {self.customer_phone_number}'
 
     def change_status(self, is_payed):
         self.is_payed = is_payed
 
-    def get_payment_url(self, return_url:str) -> str:
-        return ClickUz.generate_url(self.id, self.narxi, return_url)
+    def get_payment_url(self, return_url: str) -> str:
+        return ClickUz.generate_url(self.id, self.amount, return_url)
 
-    class Meta:
-        verbose_name = "Sayohatlar"
-        verbose_name_plural = "Sayohatlar"
 
 
 class Tassurotlar(models.Model):

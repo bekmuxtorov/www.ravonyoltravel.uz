@@ -1,8 +1,8 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Travel
+from .models import Order
 
 
 class OrderSerializer(ModelSerializer):
     class Meta:
-        model = Travel
+        model = Order
         fields = '__all__'

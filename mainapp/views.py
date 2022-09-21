@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
+from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport, Order
 
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
@@ -72,13 +72,13 @@ class TransportPagesView(ListView):
 # Payment
 # ===================================
 class OrderCreateAPIView(CreateAPIView):
-    queryset = Travel.objects.all()
+    queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
     def create(self, request, *args, **kwargs):
         response = super().create(request, *args, **kwargs)
         order_id = response.data.get('id')
-        order = Travel.objects.get(pk=order_id)
+        order = Order.objects.get(pk=order_id)
         return_url = request.data.get('return_url')
         return Response({
             'request': 'success',
