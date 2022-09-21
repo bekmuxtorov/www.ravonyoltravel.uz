@@ -1,2 +1,2 @@
 # www.ravontravel.uz
-www.ravontravel.uz uchun websayt
+www.ravonyoltravel.uz uchun websayt
