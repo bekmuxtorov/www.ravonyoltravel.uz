@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-e_c(x7$qbke+m-y%#=2x8ox_^fxx_y@z8c#hw&2h5be30*_y%3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ravonyoltravel.uz', 'www.qravonyoltravel.uz','127.0.0.1']
+ALLOWED_HOSTS = ['ravonyoltravel.uz', 'www.qravonyoltravel.uz', '127.0.0.1']
 
 # Application definition
 
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     # Payment
     'rest_framework',
-    # 'corsheaders',
+    'corsheaders',
     'clickuz',
 
     # tashqi app
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -113,7 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -148,9 +148,6 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # MEDIA_ROOT = '/home/ravonyo2/ravonyoltravel.uz/django/media'
 
 
-
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -161,13 +158,14 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media/'))
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-#CKEDITOR_CONFIGS
+# CKEDITOR_CONFIGS
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
             ['Link', 'Unlink'],
             ['RemoveFormat', 'Source']
         ]
@@ -178,5 +176,12 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICK_BY_USER = True
 
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 
+CLICK_SETTINGS = {
+    'service_id': '123',
+    'merchant_id': '123',
+    'secret_key': '123',
+}
