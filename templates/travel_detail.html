@@ -43,9 +43,9 @@
                             <div class="form">
                                 <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
                                 <input type="number" name="number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
-                                <input type="number" name="number" placeholder="Sayohatchilar soni"  id="person_number">                                         
-                                <input type="text" name="name" placeholder="Qayerdan " id="qayerdan" required autocomplete="off">
-                                <input type="text" name="name"  placeholder="Qayerga "  id="qayerga" required autocomplete="off">
+                                <input type="text" name="number" placeholder="Sayohatchilar soni"  value="Sayohat narxi: {{ object.narxi }}" id="person_number" disabled>                                         
+                                <input type="text" name="name"  value="Qayerdan: {{ object.qayerdan }}" id="qayerdan" disabled>
+                                <input type="text" name="name"  value="Qayerga: {{ object.qayerga }}"  id="qayerga" disabled>
                             </div>
                         </div>
                         <div class="modal-footer">

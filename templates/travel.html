@@ -24,10 +24,10 @@
                 <a href="#">Andijondan</a>
             </li>
         </ul>
+        {% for t in object_list %}
         
         <div class="product-field">
             <ul class="items">
-                {% for t in object_list %}
                 <li data-category="" data-price="" class="shadow">
                     <div class="trip-item-img" >
                         {% if t.picture %}
@@ -63,7 +63,6 @@
                         
                     </div>
                 </li>
-                {% endfor %}
                 
             </ul>
         </div>
@@ -84,9 +83,9 @@
                             <div class="form">
                                 <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
                                 <input type="number" name="number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
-                                <input type="number" name="number" placeholder="Sayohatchilar soni"  id="person_number">                                         
-                                <input type="text" name="name" placeholder="Qayerdan " id="qayerdan" required autocomplete="off">
-                                <input type="text" name="name"  placeholder="Qayerga "  id="qayerga" required autocomplete="off">
+                                <input type="text" name="number"  value="Sayohat narxi: {{ t.narxi }} so'm"  id="person_number" disabled>                                         
+                                <input type="text" name="name" placeholder="Qayerdan" value="Qayerdan: {{ t.qayerdan }}" id="qayerdan" disabled>
+                                <input type="text" name="name"  placeholder="" value="Qayerga: {{ t.qayerga }}"  id="qayerga" disabled>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -97,8 +96,12 @@
                 </div>
             </div>
         </div>
+        
+        {% endfor %}
+        
     </div>
 </div>
+
 {% endblock content %}
 {% block js %} {% static 'js/sendtelegram.js' %} {% endblock js %}
 

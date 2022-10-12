@@ -13,6 +13,11 @@ class TravelPageView(ListView):
     model = Travel
     template_name = 'travel.html'
 
+def TravelChoosePageView(request, pk):
+    choose_travel = Travel.objects.get(pk=pk)
+    context = {'choose_travel':choose_travel}
+    return render(request, 'travel.html', context)
+
 
 class TravelDetailView(DetailView):
     model = Travel
