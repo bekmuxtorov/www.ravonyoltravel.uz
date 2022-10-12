@@ -15,7 +15,7 @@ class Travel(models.Model):
     toliq_mal = RichTextField(verbose_name="To'liq ma'lumot:")
 
     def __str__(self):
-        return f'Sayohat {self.id} - {self.qayerdan} - {self.qayerga} - {self.narxi} '
+        return f'Sayohat {self.id} - {self.qayerdan} - {self.qayerga}'
 
     class Meta:
         verbose_name = "Sayohat"

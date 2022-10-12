@@ -8,8 +8,8 @@ from mainapp.models import Travel
 class Order(models.Model):
     uid = models.CharField(max_length=50, default=str(uuid4()), editable=False)
 
-    is_payed = models.BooleanField(default=False)
     is_approved = models.BooleanField(default=False)
+    is_payed = models.BooleanField(default=False)
 
     place = models.ForeignKey(Travel, on_delete=models.CASCADE, verbose_name='Sayohat')
 
