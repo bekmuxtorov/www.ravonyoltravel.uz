@@ -21,6 +21,7 @@ class Order(models.Model):
 
     def mark_as_payed(self):
         self.is_payed = True
+        self.save()
 
     def get_payment_url(self, return_url: str) -> str:
         if self.is_payed:
