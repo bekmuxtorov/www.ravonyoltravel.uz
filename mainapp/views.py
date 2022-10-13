@@ -1,28 +1,43 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
-
-
+from payment.models import Order
 # Create your views here.
 
 class BasePageView(TemplateView):
     template_name = 'base.html'
 
+def TravelPageView(request):
+    object_list = Travel.objects.all().order_by('-narxi')
+    context = {'object_list':object_list}
 
-class TravelPageView(ListView):
-    model = Travel
-    template_name = 'travel.html'
+    # Modelda kiritilgan qiymatlarni Order modeliga saqlash
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone_number = request.POST.get('phone_number')
+        place_id = request.POST.get('place_id')
+        Order(place_id=place_id, customer_full_name=name, customer_phone_number=phone_number).save()
+
+    return render(request, 'travel.html', context)
 
 def TravelChoosePageView(request, pk):
     choose_travel = Travel.objects.get(pk=pk)
     context = {'choose_travel':choose_travel}
     return render(request, 'travel.html', context)
 
+def TravelDetailView(request, pk):
+    object = Travel.objects.get(pk=pk)
+    context = {"object":object}
 
-class TravelDetailView(DetailView):
-    model = Travel
-    template_name = 'travel_detail.html'
+    # Modelda kiritilgan qiymatlarni Order modeliga saqlash
+    if request.method == "POST":
+        name = request.POST.get('name')
+        phone_number = request.POST.get('phone_number')
+        Order(place_id=pk, customer_full_name=name, customer_phone_number=phone_number).save()
 
+
+    return render(request, 'travel_detail.html', context)
+    
 
 class NewsPagesView(ListView):
     model = Tassurotlar
