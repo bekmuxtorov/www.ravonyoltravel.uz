@@ -28,6 +28,8 @@ class NewsPagesView(ListView):
     model = Tassurotlar
     template_name = 'news.html'
 
+def ChooseTravelView(request):
+    return render(request, 'chosse_travel.html')
 
 # Commentariya 
 # ===================================
