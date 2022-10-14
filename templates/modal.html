@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} {{ object }}{% endblock title %}
+{% block content %}
+
+<div class="container modal-div">
+    <div class="title">
+        <h1>
+            Buyurtma berish<span class="blur-line"></span>
+        </h1>
+        {% if status %}
+          <p style="text-align:center">Muaffaqiyatli buyurtma qilindi!</p>
+        {% endif %}
+    </div>
+    <form action="" method="post"> {% csrf_token %}
+        <div class="modal-body">
+            <div class="form">
+                <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
+                <input type="number" name="phone_number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
+                <input type="text" name="number" placeholder="Sayohatchilar soni"  value="Sayohat narxi: {{ object.narxi }}" disabled>                                         
+                <input type="text" name="qayerdan"  value="Qayerdan: {{ object.qayerdan }}" id="qayerdan" disabled>
+                <input type="text" name="qayerga"  value="Qayerga: {{ object.qayerga }}"  id="qayerga" disabled>
+                <input type="hidden" name="place_id" value="{{ object.pk }}">
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary ml-2" value="" id="btn">Jo'natish</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}  

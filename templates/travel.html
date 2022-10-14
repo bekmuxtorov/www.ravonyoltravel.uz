@@ -55,9 +55,11 @@
                                 </div>
                             </div>
                             <div class="control-item">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    Buyurtma berish
-                                </button>
+                                   
+                                    <a href="{% url 'modal' t.pk %}" class="btn btn-primary" >
+                                        Buyurtma berish
+                                    </a>
+                                
                             </div>
                         </div>
                         
@@ -67,39 +69,13 @@
             </ul>
         </div>
         
-        <!-- Button trigger modal -->
-        
-        
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="" method="post"> {% csrf_token %}
-                        <div class="modal-body">
-                            <div class="form">
-                                <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
-                                <input type="number" name="phone_number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
-                                <input type="text" name="number"  value="Sayohat narxi: {{ t.narxi }} so'm" disabled>                                         
-                                <input type="text" name="qayerdan" placeholder="Qayerdan" value="Qayerdan: {{ t.qayerdan }}" id="qayerdan" disabled>
-                                <input type="text" name="qayerga"  placeholder="" value="Qayerga: {{ t.qayerga }}"  id="qayerga" disabled>
-                                <input type="hidden" name="place_id" value="{{ t.id }}">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-                            <input type="submit" class="btn btn-primary" value="Jo'natish" id="btn">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
+        <input type="hidden" name="choose_id" value="{{ t.id }}">
         {% endfor %}
         
+
+
+        
+    
     </div>
 </div>
 

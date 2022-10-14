@@ -13,7 +13,8 @@ from .views import (
     CommentDetailView,
     TransportPagesView,
     TravelChoosePageView,
-    ChooseTravelView
+    ChooseTravelView,
+    ModalPageView, 
     )
 from django.urls import path  
 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('', HomePagesView.as_view(), name = 'home'),
     path('base/', BasePageView.as_view(), name = 'base'),
     path('travels/', TravelPageView, name = 'travels' ),
+
     path('travel/<int:pk>', TravelChoosePageView, name='travel_'),
     path('news/', NewsPagesView.as_view(), name='news'),
     path('images/', ImagePagesView.as_view(), name = "images"),
@@ -33,6 +35,7 @@ urlpatterns = [
     path('about/', AboutPagesView.as_view(), name = 'about'),
     path('travels/<int:pk>/', TravelDetailView, name = 'travel_detail'),
     path('choose_travel/', ChooseTravelView, name='choose_travel'),
+    path('modal/<int:pk>', ModalPageView, name='modal'),
     path('news/<int:pk>/', NewsDetailView.as_view(), name = 'news_detail'),
     
     path('fikrlar/', CommentPagesView.as_view(), name = 'fikrlar'),

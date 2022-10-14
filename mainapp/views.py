@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
@@ -8,22 +9,38 @@ class BasePageView(TemplateView):
     template_name = 'base.html'
 
 def TravelPageView(request):
-    object_list = Travel.objects.all().order_by('-narxi')
-    context = {'object_list':object_list}
+    object_list = Travel.objects.all()
+    context = {
+        'object_list':object_list,
+              }
 
-    # Modelda kiritilgan qiymatlarni Order modeliga saqlash
+    return render(request, 'travel.html', context)
+
+def ModalPageView(request, pk):
+    status = False
     if request.method == "POST":
         name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
         place_id = request.POST.get('place_id')
         Order(place_id=place_id, customer_full_name=name, customer_phone_number=phone_number).save()
+        status = True
 
-    return render(request, 'travel.html', context)
+    object = Travel.objects.get(pk=pk)
+    context = {'object':object,
+                'status': status
+                }
+
+    return render(request, 'modal.html', context)
+
 
 def TravelChoosePageView(request, pk):
     choose_travel = Travel.objects.get(pk=pk)
     context = {'choose_travel':choose_travel}
     return render(request, 'travel.html', context)
+
+def setsessions(request, uid):
+    request.session['travels'] = uid
+    return HttpResponse("session is set") 
 
 def TravelDetailView(request, pk):
     object = Travel.objects.get(pk=pk)
@@ -33,7 +50,8 @@ def TravelDetailView(request, pk):
     if request.method == "POST":
         name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
-        Order(place_id=pk, customer_full_name=name, customer_phone_number=phone_number).save()
+        object = Order(place_id=pk, customer_full_name=name, customer_phone_number=phone_number).save()
+
 
 
     return render(request, 'travel_detail.html', context)
