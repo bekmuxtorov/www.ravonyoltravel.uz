@@ -23,6 +23,9 @@ class Order(models.Model):
         self.is_payed = True
         self.save()
 
+    def get_uid(self):
+        return self.uid
+
     def get_payment_url(self, return_url: str) -> str:
         if self.is_payed:
             return '#'

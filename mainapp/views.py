@@ -1,3 +1,5 @@
+from itertools import product
+from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
@@ -22,8 +24,9 @@ def ModalPageView(request, pk):
         name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
         place_id = request.POST.get('place_id')
-        Order(place_id=place_id, customer_full_name=name, customer_phone_number=phone_number).save()
+        object = Order(place_id=place_id, customer_full_name=name, customer_phone_number=phone_number).save()
         status = True
+        request.session['recently_viewed'] =  object.get_uid
 
     object = Travel.objects.get(pk=pk)
     context = {'object':object,
@@ -37,10 +40,6 @@ def TravelChoosePageView(request, pk):
     choose_travel = Travel.objects.get(pk=pk)
     context = {'choose_travel':choose_travel}
     return render(request, 'travel.html', context)
-
-def setsessions(request, uid):
-    request.session['travels'] = uid
-    return HttpResponse("session is set") 
 
 def TravelDetailView(request, pk):
     object = Travel.objects.get(pk=pk)
@@ -62,7 +61,28 @@ class NewsPagesView(ListView):
     template_name = 'news.html'
 
 def ChooseTravelView(request):
-    return render(request, 'chosse_travel.html')
+    recently_viewed_products = None
+
+    if 'recently_viewed' in request.session:
+        products = Travel.objects.filter(pk__in=request.session['recently_viewed'])
+        recently_viewed_products = (products)        
+        if len(request.session['recently_viewed']) > 5:
+            request.session['recently_viewed'].pop()
+        
+    else:
+        products = "Hozircha hech qanday buyurtma berilmagan!"
+
+    request.session.modified = True
+
+    context = {
+        'recently_viewed_products': recently_viewed_products,
+
+
+    }
+
+        
+
+    return render(request, 'chosse_travel.html', context)
 
 # Commentariya 
 # ===================================

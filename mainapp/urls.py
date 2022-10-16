@@ -28,6 +28,8 @@ urlpatterns = [
     path('base/', BasePageView.as_view(), name = 'base'),
     path('travels/', TravelPageView, name = 'travels' ),
 
+    path('product/', ChooseTravelView, name='product'),
+
     path('travel/<int:pk>', TravelChoosePageView, name='travel_'),
     path('news/', NewsPagesView.as_view(), name='news'),
     path('images/', ImagePagesView.as_view(), name = "images"),
