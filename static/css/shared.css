@@ -74,6 +74,13 @@ header{
     font-size: 18px;
 }
 
+.modal-div{
+    padding-top: 150px;
+}
+.modal-div .form input{
+    padding: 10px !important;
+}
+
 .sub-title p{
     margin-bottom: 0.9375rem;
     font-size: 14px;
@@ -346,7 +353,7 @@ header{
 }
 
 .form input{
-    margin: 10px;
+    margin: 10px 0;
     padding: 10px 5px;
     border-radius: 5px;
     font-size: 20px;

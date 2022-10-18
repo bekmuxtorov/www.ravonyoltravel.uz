@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Tanlangan sayohatlar || Ravonyoltravel.uz{% endblock title %}
+{% block link %}{% static 'css/trips.css' %}{% endblock link %}
+
+{% block content %}
+    <div class="trips">
+        <div class="container-lg trips-area">
+            <div class="title">
+                <h1>
+                    Sayohatlar<span class="blur-line"></span>
+                </h1>
+            </div>
+
+            {% for t in orders %}
+
+                {#           shu yerni to'g'rilash kerak              #}
+
+                <div class="product-field">
+                    <ul class="items">
+                        <li data-category="" data-price="" class="shadow">
+                            <div class="trip-item-img">
+                                {% if t.picture %}
+                                    <img src="{{ t.picture.url }}" width="512px">
+                                {% else %}
+                                    <img src=" {% static 'images/image2.jpg' %}">
+                                {% endif %}
+                            </div>
+
+                            <div class="trip-item-description">
+                                <h2>
+                                    <strong>{{ t.place.qayerdan }}</strong>dan - {{ t.place.qayerga.lower.title }}ga
+                                </h2>
+                                <p class="desription-p">
+                                    {{ t.place.qisqa_mal|slice:":150" }}...
+                                    <br><br>
+                                    <b>Davomiyligi</b>: {{ t.place.davomiyligi }} kun <br>
+                                    <b>Narxi</b>: {{ t.place.narxi }} so'm
+                                </p>
+
+                                <div class="control">
+                                    <div class="control-item">
+                                        <div>
+                                            <a class="about-link"
+                                               href="{% url 'travel_detail' t.place_id %}">Batafsil</a>
+                                        </div>
+                                    </div>
+                                    <div class="control-item">
+
+                                        {% if t.get_payment_url == 'NOT_APPROVED' %}
+                                            <p>
+                                                Buyurtma holati: <i>Tastiqlanishi kutilmoqda ...</i>
+                                            </p>
+                                        {% elif t.get_payment_url == 'ALREADY_PAYED' %}
+                                            <p>
+                                                Buyurtma holati: <i>To'lov qilingan</i>
+                                            </p>
+                                        {% else %}
+                                            <a class="btn btn-primary" href="{{ t.get_payment_url }}">
+                                                To'lov qilish
+                                            </a>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock content %}
