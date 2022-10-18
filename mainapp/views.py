@@ -1,91 +1,85 @@
-from itertools import product
-from multiprocessing import context
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
 from payment.models import Order
-# Create your views here.
+
+from uuid import uuid4
+from django.contrib.auth.models import User
+
+
+def get_or_create_user(request):
+    user = request.session.get('user')
+    if not user:
+        print('3333')
+        user = str(uuid4())
+        request.session['user'] = user
+    user, _ = User.objects.get_or_create(username=user)
+    return user
+
 
 class BasePageView(TemplateView):
     template_name = 'base.html'
 
-def TravelPageView(request):
+
+def travels_list(request):
     object_list = Travel.objects.all()
-    context = {
-        'object_list':object_list,
-              }
+    context_data = {
+        'object_list': object_list,
+    }
+    return render(request, 'travel.html', context_data)
 
-    return render(request, 'travel.html', context)
 
-def ModalPageView(request, pk):
-    status = False
-    if request.method == "POST":
-        name = request.POST.get('name')
+def make_new_order(request, pk):
+    status = -1
+    place = Travel.objects.get(pk=pk)
+    user = get_or_create_user(request)
+    order = Order.objects.filter(user=user).filter(place=place).first()
+    if order is not None:
+        status = 0
+    if status == -1 and request.method == "POST":
+        full_name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
-        place_id = request.POST.get('place_id')
-        object = Order(place_id=place_id, customer_full_name=name, customer_phone_number=phone_number).save()
-        status = True
-        request.session['recently_viewed'] =  object.get_uid
-
-    object = Travel.objects.get(pk=pk)
-    context = {'object':object,
-                'status': status
-                }
-
+        Order.objects.create(
+            user=user,
+            place=place,
+            customer_full_name=full_name,
+            customer_phone_number=phone_number
+        )
+        status = 1
+    context = {
+        'object': place,
+        'status': status
+    }
     return render(request, 'modal.html', context)
 
 
-def TravelChoosePageView(request, pk):
-    choose_travel = Travel.objects.get(pk=pk)
-    context = {'choose_travel':choose_travel}
-    return render(request, 'travel.html', context)
+def travel_detail_view(request, pk):
+    order = Travel.objects.get(pk=pk)
+    context = {"object": order}
 
-def TravelDetailView(request, pk):
-    object = Travel.objects.get(pk=pk)
-    context = {"object":object}
-
-    # Modelda kiritilgan qiymatlarni Order modeliga saqlash
     if request.method == "POST":
+        # Creating new order
         name = request.POST.get('name')
         phone_number = request.POST.get('phone_number')
-        object = Order(place_id=pk, customer_full_name=name, customer_phone_number=phone_number).save()
-
-
+        order = Order(place_id=pk, customer_full_name=name, customer_phone_number=phone_number).save()
 
     return render(request, 'travel_detail.html', context)
-    
+
 
 class NewsPagesView(ListView):
     model = Tassurotlar
     template_name = 'news.html'
 
-def ChooseTravelView(request):
-    recently_viewed_products = None
 
-    if 'recently_viewed' in request.session:
-        products = Travel.objects.filter(pk__in=request.session['recently_viewed'])
-        recently_viewed_products = (products)        
-        if len(request.session['recently_viewed']) > 5:
-            request.session['recently_viewed'].pop()
-        
-    else:
-        products = "Hozircha hech qanday buyurtma berilmagan!"
-
-    request.session.modified = True
-
+# User's orders
+def my_orders(request):
+    orders = Order.objects.filter(user=get_or_create_user(request))
+    print(3333333)
     context = {
-        'recently_viewed_products': recently_viewed_products,
-
-
+        'orders': orders,
     }
-
-        
-
     return render(request, 'chosse_travel.html', context)
 
-# Commentariya 
-# ===================================
 
 class CommentPagesView(ListView):
     model = Fikrlar
@@ -102,8 +96,6 @@ class CommentNewView(CreateView):
     template_name = 'fikrlar_new.html'
     fields = ['name', 'text']
 
-
-# ===================================
 
 class NewsDetailView(DetailView):
     model = Tassurotlar
@@ -127,9 +119,6 @@ class ImageDetailView(DetailView):
 class AboutPagesView(TemplateView):
     template_name = 'about.html'
 
-
-# Transport xizmati
-# ===================================
 
 class TransportPagesView(ListView):
     model = Transport

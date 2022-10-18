@@ -1,51 +1,40 @@
 from .views import (
-    BasePageView, 
-    TravelPageView, 
-    NewsPagesView, 
-    HomePagesView, 
-    ImagePagesView, 
-    AboutPagesView, 
-    TravelDetailView,
+    BasePageView,
+    travels_list,
+    NewsPagesView,
+    HomePagesView,
+    ImagePagesView,
+    AboutPagesView,
+    travel_detail_view,
     NewsDetailView,
     ImageDetailView,
     CommentPagesView,
     CommentNewView,
     CommentDetailView,
     TransportPagesView,
-    TravelChoosePageView,
-    ChooseTravelView,
-    ModalPageView, 
-    )
-from django.urls import path  
-
-
-
-
-
+    my_orders,
+    make_new_order,
+)
+from django.urls import path
 
 urlpatterns = [
-    path('', HomePagesView.as_view(), name = 'home'),
-    path('base/', BasePageView.as_view(), name = 'base'),
-    path('travels/', TravelPageView, name = 'travels' ),
+    path('', HomePagesView.as_view(), name='home'),
+    path('base/', BasePageView.as_view(), name='base'),
 
-    path('product/', ChooseTravelView, name='product'),
+    path('travels/', travels_list, name='travels'),
+    path('travels/<int:pk>/', travel_detail_view, name='travel_detail'),
 
-    path('travel/<int:pk>', TravelChoosePageView, name='travel_'),
     path('news/', NewsPagesView.as_view(), name='news'),
-    path('images/', ImagePagesView.as_view(), name = "images"),
-    path('images/<int:pk>/',ImageDetailView.as_view(), name = 'images_detail' ),
-    path('about/', AboutPagesView.as_view(), name = 'about'),
-    path('travels/<int:pk>/', TravelDetailView, name = 'travel_detail'),
-    path('choose_travel/', ChooseTravelView, name='choose_travel'),
-    path('modal/<int:pk>', ModalPageView, name='modal'),
-    path('news/<int:pk>/', NewsDetailView.as_view(), name = 'news_detail'),
-    
-    path('fikrlar/', CommentPagesView.as_view(), name = 'fikrlar'),
-    path('fikrlar/add/', CommentNewView.as_view(), name = 'fikrlar_new'),
-    path('fikrlar/<int:pk>', CommentDetailView.as_view(), name = 'fikrlar_detail'),
+    path('news/<int:pk>/', NewsDetailView.as_view(), name='news_detail'),
 
-    path('transport/', TransportPagesView.as_view(), name = "transport" ),
-
+    path('product/', my_orders, name='product'),
+    path('images/', ImagePagesView.as_view(), name="images"),
+    path('images/<int:pk>/', ImageDetailView.as_view(), name='images_detail'),
+    path('about/', AboutPagesView.as_view(), name='about'),
+    path('my-orders/', my_orders, name='choose_travel'),
+    path('new-order/<int:pk>', make_new_order, name='modal'),
+    path('fikrlar/', CommentPagesView.as_view(), name='fikrlar'),
+    path('fikrlar/add/', CommentNewView.as_view(), name='fikrlar_new'),
+    path('fikrlar/<int:pk>', CommentDetailView.as_view(), name='fikrlar_detail'),
+    path('transport/', TransportPagesView.as_view(), name="transport"),
 ]
-
-

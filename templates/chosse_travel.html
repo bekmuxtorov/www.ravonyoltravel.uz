@@ -4,90 +4,100 @@
 {% block link %}{% static 'css/trips.css' %}{% endblock link %}
 
 {% block content %}
-<div class="trips">
-    <div class="container-lg trips-area">
-        <div class="title">
-            <h1>
-                Sayohatlar<span class="blur-line"></span>
-            </h1>
-        </div>
-       
-        {% for t in recently_viewed_products %}
-        
-        <div class="product-field">
-            <ul class="items">
-                <li data-category="" data-price="" class="shadow">
-                    <div class="trip-item-img" >
-                        {% if t.picture %}
-                        <img src = "{{ t.picture.url }}" width="512px">
-                        {% else %}
-                        <img src = " {% static 'images/image2.jpg' %}">
-                        {% endif %}
-                    </div>
-                    
-                    <div class="trip-item-description">   
-                        <h2>
-                            <strong>{{t.qayerdan}}</strong>dan - {{t.qayerga.lower.title}}ga
-                        </h2> 
-                        <p class="desription-p">
-                            {{ t.qisqa_mal|slice:":200"}}...
-                            <br><br>
-                            <b>Davomiyligi</b>: {{ t.davomiyligi }} kun <br>
-                            <b>Narxi</b>: {{ t.narxi }} so'm                             
-                        </p>
-                        
-                        <div class="control">
-                            <div class="control-item">
-                                <div >
-                                    <a class="about-link"  href= "{% url 'travel_detail' t.pk %}">Batafsil</a>
-                                </div>
-                            </div>
-                            <div class="control-item">
-                                <input type="text" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Kutulmoqda..." disabled>
-                                    
-                                </button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </li>
-                
-            </ul>
-        </div>
-        
-        <!-- Button trigger modal -->
-        
-        
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="" onsubmit=" return sendtelegram()">
-                        <div class="modal-body">
-                            <div class="form">
-                                <input type="text" name="name" placeholder="Ismingizni kiriting" required autocomplete="off" id="name">
-                                <input type="number" name="number" placeholder="Telefon raqamingizni kiriting" required autocomplete="off" id="number"> 
-                                <input type="text" name="number"  value="Sayohat narxi: {{ t.narxi }} so'm"  id="person_number" disabled>                                         
-                                <input type="text" name="name" placeholder="Qayerdan" value="Qayerdan: {{ t.qayerdan }}" id="qayerdan" disabled>
-                                <input type="text" name="name"  placeholder="" value="Qayerga: {{ t.qayerga }}"  id="qayerga" disabled>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-                            <input type="text" class="btn btn-primary" value="Kutulmoqda..." id="btn" disabled>
-                        </div>
-                    </form>
-                </div>
+    <div class="trips">
+        <div class="container-lg trips-area">
+            <div class="title">
+                <h1>
+                    Sayohatlar<span class="blur-line"></span>
+                </h1>
             </div>
-        </div>
-        
-        {% endfor %}
 
-        
+            {% for t in orders %}
+
+{#           shu yerni to'g'rilash kerak              #}
+
+                <div class="product-field">
+                    <ul class="items">
+                        <li data-category="" data-price="" class="shadow">
+                            <div class="trip-item-img">
+                                {% if t.picture %}
+                                    <img src="{{ t.picture.url }}" width="512px">
+                                {% else %}
+                                    <img src=" {% static 'images/image2.jpg' %}">
+                                {% endif %}
+                            </div>
+
+                            <div class="trip-item-description">
+                                <h2>
+                                    <strong>{{ t.qayerdan }}</strong>dan - {{ t.qayerga.lower.title }}ga
+                                </h2>
+                                <p class="desription-p">
+                                    {{ t.qisqa_mal|slice:":200" }}...
+                                    <br><br>
+                                    <b>Davomiyligi</b>: {{ t.davomiyligi }} kun <br>
+                                    <b>Narxi</b>: {{ t.narxi }} so'm
+                                </p>
+
+                                <div class="control">
+                                    <div class="control-item">
+                                        <div>
+                                            <a class="about-link" href="{% url 'travel_detail' t.pk %}">Batafsil</a>
+                                        </div>
+                                    </div>
+                                    <div class="control-item">
+                                        <input type="text" class="btn btn-primary" data-bs-toggle="modal"
+                                               data-bs-target="#exampleModal" value="Kutulmoqda..." disabled>
+
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="" onsubmit=" return sendtelegram()">
+                                <div class="modal-body">
+                                    <div class="form">
+                                        <input type="text" name="name" placeholder="Ismingizni kiriting" required
+                                               autocomplete="off" id="name">
+                                        <input type="number" name="number" placeholder="Telefon raqamingizni kiriting"
+                                               required autocomplete="off" id="number">
+                                        <input type="text" name="number" value="Sayohat narxi: {{ t.narxi }} so'm"
+                                               id="person_number" disabled>
+                                        <input type="text" name="name" placeholder="Qayerdan"
+                                               value="Qayerdan: {{ t.qayerdan }}" id="qayerdan" disabled>
+                                        <input type="text" name="name" placeholder="" value="Qayerga: {{ t.qayerga }}"
+                                               id="qayerga" disabled>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish
+                                    </button>
+                                    <input type="text" class="btn btn-primary" value="Kutulmoqda..." id="btn" disabled>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
+        </div>
     </div>
-</div>
 {% endblock content %}

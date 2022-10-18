@@ -1,12 +1,19 @@
 from uuid import uuid4
 from django.db import models
+from django.contrib.auth.models import User
 from clickuz import ClickUz
 
 from mainapp.models import Travel
 
 
 class Order(models.Model):
-    uid = models.CharField(max_length=50, default=str(uuid4()), editable=False)
+    user = models.ForeignKey(
+        to=User,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        verbose_name='Foydalanuvchi identifikatsiya raqami'
+    )
 
     is_approved = models.BooleanField(default=False, verbose_name='Tasdiqlangan holati: ')
     is_payed = models.BooleanField(default=False, verbose_name="To'lanish holati: ")
@@ -17,14 +24,11 @@ class Order(models.Model):
     customer_phone_number = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'Order {self.uid}'
+        return f'Order {self.place.qayerdan} -> {self.place.qayerga} | {self.pk}'
 
     def mark_as_payed(self):
         self.is_payed = True
         self.save()
-
-    def get_uid(self):
-        return self.uid
 
     def get_payment_url(self, return_url: str) -> str:
         if self.is_payed:
