@@ -5,7 +5,7 @@ from .models import Order
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
-        'place', 'get_amout', 'is_payed', 'is_approved', 'customer_full_name', 'customer_phone_number')
+        'place', 'get_amout', 'is_payed', 'is_approved', 'user', 'customer_full_name', 'customer_phone_number')
 
     list_filter = ('is_payed', 'is_approved')
 

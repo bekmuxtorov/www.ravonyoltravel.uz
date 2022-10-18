@@ -30,9 +30,9 @@ class Order(models.Model):
         self.is_payed = True
         self.save()
 
-    def get_payment_url(self, return_url: str) -> str:
+    def get_payment_url(self, return_url: str = '') -> str:
         if self.is_payed:
-            return '#'
+            return 'ALREADY_PAYED'
         if not self.is_approved:
-            return '#'
+            return 'NOT_APPROVED'
         return ClickUz.generate_url(self.id, self.place.narxi, return_url)

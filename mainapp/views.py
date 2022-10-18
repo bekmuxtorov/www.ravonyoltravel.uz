@@ -71,10 +71,8 @@ class NewsPagesView(ListView):
     template_name = 'news.html'
 
 
-# User's orders
 def my_orders(request):
     orders = Order.objects.filter(user=get_or_create_user(request))
-    print(3333333)
     context = {
         'orders': orders,
     }
