@@ -40,40 +40,14 @@
                    
                     <div class="item-text">
                         <p> {{ trans.name }} </p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Buyurtma berish
-                        </button>
+                        <a href="tel://+998 90 300 22 60" type="button" class="btn btn-primary" style="display:block ;">
+                            Bog'lanish
+                        </a>
                     </div>
               </li>
             {% endfor %}
         </ul>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Buyurtma berish</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="" onsubmit="return sendtelegram1()">
-                        <div class="modal-body">
-                            <div class="form">
-                                <input type="text" name="name" placeholder="Ismingizni kiriting:" required autocomplete="off" id="name">
-                                <input type="number" name="number" placeholder="Telefon raqamingizni kiriting:" required autocomplete="off" id="number"> 
-                                <input type="text" name="number" placeholder="Xizmat turi(avtobus yoki damas)"  id="person_number">                                         
-                                <input type="text" name="name" placeholder="Marosim yoki tadbir nomi:" id="qayerdan" required autocomplete="off">
-                                <input type="text" name="name"  placeholder="Xudud manzili:"  id="qayerga" required autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
-                            <input type="submit" class="btn btn-primary" value="Buyurtma" id="btn">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 {% endblock content %}
-{% block js %} {% static 'js/sendtelegram1.js' %} {% endblock js %}

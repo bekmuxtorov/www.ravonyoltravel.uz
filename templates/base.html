@@ -45,7 +45,6 @@
                             
                             <li class="nav-item {% if request.resolver_match.url_name == 'home'%}active{% endif %} " > <a class="nav-item" href=" {% url 'home' %}">Bosh sahifa</a></li>
                             <li class="nav-item {% if request.resolver_match.url_name == 'travels'%}active{% endif %} " > <a class="nav-item" href=" {% url 'travels' %}">Sayohatlar</a></li>
-                            <li class="nav-item {% if request.resolver_match.url_name == 'news'%}active{% endif %} " > <a class="nav-item" href=" {% url 'news' %}">Yangiliklar</a></li>
                             <li class="nav-item {% if request.resolver_match.url_name == 'fikrlar'%}active{% endif %} " > <a class="nav-item" href=" {% url 'fikrlar' %}">Taassurotlar</a></li>
                             <li class="nav-item {% if request.resolver_match.url_name == 'transport'%}active{% endif %} " > <a class="nav-item" href=" {% url 'transport' %}">Transport</a></li>
                             <li class="nav-item {% if request.resolver_match.url_name == 'choose_travel'%}active{% endif %} " > <a class="nav-item" href=" {% url 'choose_travel' %}">Tanlovlar</a></li>
@@ -76,7 +75,6 @@
                                             
                                             <li class="nav-item {% if request.resolver_match.url_name == 'home'%}active{% endif %} " > <a class="nav-item" href=" {% url 'home' %}">Bosh sahifa</a></li>
                                             <li class="nav-item {% if request.resolver_match.url_name == 'travels'%}active{% endif %} " > <a class="nav-item" href=" {% url 'travels' %}">Sayohatlar</a></li>
-                                            <li class="nav-item {% if request.resolver_match.url_name == 'news'%}active{% endif %} " > <a class="nav-item" href=" {% url 'news' %}">Yangiliklar</a></li>
                                             <li class="nav-item {% if request.resolver_match.url_name == 'fikrlar'%}active{% endif %} " > <a class="nav-item" href=" {% url 'fikrlar' %}">Taassurotlar</a></li>
                                             <li class="nav-item {% if request.resolver_match.url_name == 'transport'%}active{% endif %} " > <a class="nav-item" href=" {% url 'transport' %}">Transport</a></li>
                                             <li class="nav-item {% if request.resolver_match.url_name == 'choose_travel'%}active{% endif %} " > <a class="nav-item" href=" {% url 'choose_travel' %}">Tanlangan sayohatlar</a></li>
@@ -101,7 +99,7 @@
     {% endblock content %}
     
     <!-- contact -->
-    <div class="contact-footer box-container" data-aos="fade-up" data-aos-duration="1000">
+    <div class="contact-footer box-container" data-aos="fade-up" data-aos-duration="1000" id="contact-footer">
         <div class="container-lg contact-area shadow-lg">
             <div class="contact-item contact-description">
                 <h3>Biz bilan bog'laning</h3>
@@ -129,7 +127,6 @@
                     <ul class="footer-nav--items">
                         <li class="footer-nav--item {% if request.resolver_match.url_name == 'home'%}active{% endif %} " > <a class="nav-item" href=" {% url 'home' %}">Bosh sahifa</a></li>
                         <li class="footer-nav--item {% if request.resolver_match.url_name == 'travels'%}active{% endif %} " > <a class="nav-item" href=" {% url 'travels' %}">Sayohatlar</a></li>
-                        <li class="footer-nav--item {% if request.resolver_match.url_name == 'news'%}active{% endif %} " > <a class="nav-item" href=" {% url 'news' %}">Yangiliklar</a></li>
                         <li class="footer-nav--item {% if request.resolver_match.url_name == 'fikrlar'%}active{% endif %} " > <a class="nav-item" href=" {% url 'fikrlar' %}">Taassurotlar</a></li>
                         <li class="footer-nav--item {% if request.resolver_match.url_name == 'transport'%}active{% endif %} " > <a class="nav-item" href=" {% url 'transport' %}">Transport</a></li>
                         <li class="footer-nav--item {% if request.resolver_match.url_name == 'images'%}active{% endif %} " > <a class="nav-item" href=" {% url 'images' %}">Suratlar</a></li>
