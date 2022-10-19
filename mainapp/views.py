@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from .models import Travel, Tassurotlar, Rasmlar, Fikrlar, Transport
+from .models import Travel, Rasmlar, Fikrlar, Transport
 from payment.models import Order
 
 from uuid import uuid4
@@ -66,9 +66,7 @@ def travel_detail_view(request, pk):
     return render(request, 'travel_detail.html', context)
 
 
-class NewsPagesView(ListView):
-    model = Tassurotlar
-    template_name = 'news.html'
+
 
 
 def my_orders(request):
@@ -93,12 +91,6 @@ class CommentNewView(CreateView):
     model = Fikrlar
     template_name = 'fikrlar_new.html'
     fields = ['name', 'text']
-
-
-class NewsDetailView(DetailView):
-    model = Tassurotlar
-    template_name = 'news_detail.html'
-
 
 class HomePagesView(TemplateView):
     template_name = 'home.html'

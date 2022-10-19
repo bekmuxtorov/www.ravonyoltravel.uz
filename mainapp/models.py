@@ -22,23 +22,6 @@ class Travel(models.Model):
         verbose_name_plural = "Sayohatlar"
 
 
-class Tassurotlar(models.Model):
-    sarlavha = models.CharField(max_length=50, verbose_name='Sarlavha')
-    qisqa_mal = models.CharField(max_length=200, verbose_name="Qiqacha ma'lumot")
-    picture = models.ImageField(blank=True, verbose_name="Rasmni joylang:")
-    toliq_mal = RichTextField(verbose_name="To'liq ma'lumot")
-
-    def __str__(self):
-        return self.sarlavha
-
-    def get_absolute_url(self):
-        return reverse('news_detail', args=[str(self.pk)])
-
-    class Meta:
-        verbose_name = "Yangilik"
-        verbose_name_plural = "Yangiliklar"
-
-
 class Rasmlar(models.Model):
     image = models.ImageField(blank=True, verbose_name='Rasmni joylang:')
     name = models.CharField(max_length=20, verbose_name='Rasmning nomi:')

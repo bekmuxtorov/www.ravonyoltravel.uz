@@ -1,12 +1,10 @@
 from .views import (
     BasePageView,
     travels_list,
-    NewsPagesView,
     HomePagesView,
     ImagePagesView,
     AboutPagesView,
     travel_detail_view,
-    NewsDetailView,
     ImageDetailView,
     CommentPagesView,
     CommentNewView,
@@ -23,9 +21,6 @@ urlpatterns = [
 
     path('travels/', travels_list, name='travels'),
     path('travels/<int:pk>/', travel_detail_view, name='travel_detail'),
-
-    path('news/', NewsPagesView.as_view(), name='news'),
-    path('news/<int:pk>/', NewsDetailView.as_view(), name='news_detail'),
 
     path('product/', my_orders, name='product'),
     path('images/', ImagePagesView.as_view(), name="images"),
