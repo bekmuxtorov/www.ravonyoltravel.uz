@@ -181,7 +181,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 CLICK_SETTINGS = {
-    'service_id': '123',
-    'merchant_id': '123',
-    'secret_key': '123',
+    'service_id': '25342',
+    'merchant_id': '17749',
+    'secret_key': '918P31RXwFyB4F',
 }
