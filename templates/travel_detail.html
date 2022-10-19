@@ -23,10 +23,10 @@
                 {{ object.toliq_mal | safe }}
             </p>
 
-           <div class="button">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           <div class="button mt-2" style="display:flex; justify-content: flex-end;">
+            <a href="{% url 'modal' pk=object.pk %}" type="button" class="btn btn-primary p-2" style="display: block; width: 40%">
                 Buyurtma berish
-            </button>
+            </a>
            </div>
         </div>
         
