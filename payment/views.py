@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from clickuz.views import ClickUzMerchantAPIView
 from clickuz import ClickUz
 
@@ -15,7 +17,7 @@ class OrderCheckAndPayment(ClickUz):
         if order.is_payed:
             return self.ORDER_NOT_FOUND
 
-        if order.place.narxi != amount:
+        if order.place.narxi != Decimal(amount):
             return self.INVALID_AMOUNT
 
         return self.ORDER_FOUND
