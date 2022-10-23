@@ -184,4 +184,5 @@ CLICK_SETTINGS = {
     'service_id': '25342',
     'merchant_id': '17749',
     'secret_key': '918P31RXwFyB4F',
+    'merchant_user_id': '28620'
 }
