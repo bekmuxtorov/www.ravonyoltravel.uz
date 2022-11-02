@@ -10,7 +10,6 @@ from django.contrib.auth.models import User
 def get_or_create_user(request):
     user = request.session.get('user')
     if not user:
-        print('3333')
         user = str(uuid4())
         request.session['user'] = user
     user, _ = User.objects.get_or_create(username=user)
@@ -66,9 +65,6 @@ def travel_detail_view(request, pk):
     return render(request, 'travel_detail.html', context)
 
 
-
-
-
 def my_orders(request):
     orders = Order.objects.filter(user=get_or_create_user(request))
     context = {
@@ -91,6 +87,7 @@ class CommentNewView(CreateView):
     model = Fikrlar
     template_name = 'fikrlar_new.html'
     fields = ['name', 'text']
+
 
 class HomePagesView(TemplateView):
     template_name = 'home.html'

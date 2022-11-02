@@ -9,6 +9,7 @@ from .models import Order
 # Create your views here.
 class OrderCheckAndPayment(ClickUz):
     def check_order(self, order_id: str, amount: str):
+
         order = Order.objects.filter(pk=order_id).first()
 
         if order is None:
@@ -25,7 +26,7 @@ class OrderCheckAndPayment(ClickUz):
     def successfully_payment(self, order_id: str, transaction: object):
         order = Order.objects.get(pk=order_id)
         order.mark_as_payed()
-
+        
 
 class TestView(ClickUzMerchantAPIView):
     VALIDATE_CLASS = OrderCheckAndPayment
